@@ -1,0 +1,9 @@
+{//Django Dev enviroment with Debian run on Windows
+  "name": "Django Dev",
+  "image": "python:3.11-slim",  // Debian Slim + Python
+  "workspaceMount": "source=C:/Containers/PythonDevContainer,target=/app,type=bind",
+  "workspaceFolder": "/app",
+  "forwardPorts": [8030],
+  "extensions": ["ms-python.python"],
+  "postCreateCommand": "pip install django && django-admin startproject siteTesting /app && chmod +x /app/manage.py"
+}
