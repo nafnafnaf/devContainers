@@ -1,0 +1,13 @@
+#this is for a windows container - No Workspace
+# Create project dir (if needed)
+mkdir -Force ~/Projects/Django | cd ~/Projects/Django
+
+# Build image
+docker build -t django_live .
+
+# Run with persistent volume (Windows paths)
+docker run -it --rm `
+  -v ${PWD}:/code `  # Or use full path like C:\Users\You\Projects\Django
+  -p 8000:8000 `
+  --name django_dev `
+  django_live
