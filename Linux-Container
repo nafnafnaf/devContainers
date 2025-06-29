@@ -1,0 +1,13 @@
+#Create a free container for Django with persistant volume - No Workspace
+# Create project dir
+mkdir -p ~/Projects/Django && cd ~/Projects/Django
+
+# Build image
+podman build -t django_live .
+
+# Run with persistent volume (bind-mount current dir)
+podman run -it --rm \
+  -v ./:/code \  # Maps local dir to /code in container
+  -p 8000:8000 \
+  --name django_dev \
+  django_live
