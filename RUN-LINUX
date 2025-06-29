@@ -7,3 +7,6 @@ podman run -it --rm \
   -v ./:/workspace \
   -p 8000:8000 \
   django_dev
+
+#Enter the container
+#podman/docker exec -it django_dev bash
