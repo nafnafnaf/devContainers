@@ -1,0 +1,9 @@
+#RUN FILE FOR LINUX
+# Build the image
+podman build -t django_dev .
+
+# Run the container (bind-mount current dir, expose port 8000)
+podman run -it --rm \
+  -v ./:/workspace \
+  -p 8000:8000 \
+  django_dev
