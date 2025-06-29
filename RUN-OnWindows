@@ -1,0 +1,10 @@
+#run file for windows
+
+# Build the image
+docker build -t django_dev .
+
+# Run (Windows-style paths)
+docker run -it --rm `
+  -v ${PWD}:/workspace `
+  -p 8000:8000 `
+  django_dev
